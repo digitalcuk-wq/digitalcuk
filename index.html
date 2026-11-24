@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리집 막내 몽이를 소개합니다 🐾</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FFFDF7;
+      color: #3D352E;
+    }
+    .font-cute {
+      font-family: 'Jua', sans-serif;
+    }
+    @keyframes floatHeart {
+      0% { transform: translateY(0) scale(0.8); opacity: 1; }
+      100% { transform: translateY(-70px) scale(1.4); opacity: 0; }
+    }
+    .heart-anim {
+      position: absolute;
+      animation: floatHeart 1s ease-out forwards;
+      pointer-events: none;
+      font-size: 1.75rem;
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .wiggle-hover:hover {
+      animation: wiggle 0.4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+  <!-- 상단 헤더 -->
+  <header class="w-full max-w-2xl px-6 pt-10 pb-6 text-center">
+    <span class="inline-block bg-amber-100 text-amber-800 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+      🐶 2024년생 골든 리트리버 왕자님
+    </span>
+    <h1 class="font-cute text-4xl sm:text-5xl text-amber-900 tracking-tight mb-3">
+      안녕! 나는 <span class="text-amber-500">몽이</span>야 🐾
+    </h1>
+    <p class="text-stone-600 text-base sm:text-lg">
+      산책과 고구마를 세상에서 제일 좋아하는 에너자이저 강아지!
+    </p>
+  </header>
+
+  <!-- 메인 프로필 카드 & 쓰다듬기 인터랙션 -->
+  <main class="w-full max-w-2xl px-6 space-y-8 pb-16">
+    <section class="relative bg-white rounded-3xl p-8 shadow-sm border border-amber-100 text-center overflow-hidden">
+      <div id="heart-container" class="inset-0 pointer-events-none"></div>
+      
+      <!-- 귀여운 강아지 아바타 SVG -->
+      <div class="w-36 h-36 mx-auto mb-5 bg-amber-50 rounded-full flex items-center justify-center border-4 border-amber-200 shadow-inner wiggle-hover cursor-pointer" onclick="petDog(event)">
+        <svg viewBox="0 0 120 120" class="w-28 h-28">
+          <!-- 귀 -->
+          <ellipse cx="28" cy="55" rx="14" ry="26" transform="rotate(15 28 55)" fill="#D98A3C"/>
+          <ellipse cx="92" cy="55" rx="14" ry="26" transform="rotate(-15 92 55)" fill="#D98A3C"/>
+          <!-- 얼굴 -->
+          <circle cx="60" cy="60" r="36" fill="#F4B266"/>
+          <!-- 볼터치 -->
+          <circle cx="38" cy="68" r="6" fill="#FF9E9E" opacity="0.6"/>
+          <circle cx="82" cy="68" r="6" fill="#FF9E9E" opacity="0.6"/>
+          <!-- 눈 -->
+          <circle cx="46" cy="54" r="4.5" fill="#2D241E"/>
+          <circle cx="74" cy="54" r="4.5" fill="#2D241E"/>
+          <circle cx="47.5" cy="52.5" r="1.5" fill="#FFFFFF"/>
+          <circle cx="75.5" cy="52.5" r="1.5" fill="#FFFFFF"/>
+          <!-- 주둥이 & 코 -->
+          <ellipse cx="60" cy="69" rx="14" ry="11" fill="#FFF6E9"/>
+          <ellipse cx="60" cy="64" rx="6" ry="4.5" fill="#2D241E"/>
+          <!-- 입 & 혀 -->
+          <path d="M53 72 Q60 79 67 72" stroke="#2D241E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M57 75 Q60 83 63 75" fill="#FF7B7B"/>
+        </svg>
+      </div>
+
+      <h2 class="font-cute text-2xl text-stone-800 mb-1">몽이 (Mong-e)</h2>
+      <p class="text-sm text-stone-500 mb-5">취미: 공 물어오기 · 특기: 발라당 눕기</p>
+
+      <button onclick="petDog(event)" class="bg-amber-400 hover:bg-amber-500 active:scale-95 transition text-stone-900 font-bold px-6 py-3 rounded-2xl shadow-sm cursor-pointer">
+        ✋ 몽이 쓰다듬어 주기 (<span id="pet-count">0</span>번)
+      </button>
+      <p id="pet-message" class="text-sm text-amber-700 font-medium mt-3 h-5">
+        강아지 얼굴이나 버튼을 눌러 쓰다듬어 주세요!
+      </p>
+    </section>
+
+    <!-- 기본 정보 & 성격 능력치 -->
+    <section class="grid sm:grid-cols-2 gap-5">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-amber-100">
+        <h3 class="font-cute text-xl text-amber-900 mb-4">📋 몽이 프로필</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex justify-between border-b border-stone-100 pb-2">
+            <span class="text-stone-500">생일</span>
+            <span class="font-semibold">2024년 5월 12일</span>
+          </li>
+          <li class="flex justify-between border-b border-stone-100 pb-2">
+            <span class="text-stone-500">몸무게</span>
+            <span class="font-semibold">18.5 kg (폭풍 성장 중)</span>
+          </li>
+          <li class="flex justify-between border-b border-stone-100 pb-2">
+            <span class="text-stone-500">최애 간식</span>
+            <span class="font-semibold">군고구마, 북어트릿</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-stone-500">MBTI</span>
+            <span class="font-semibold text-amber-600">ENFP (초핵인싸견)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-amber-100">
+        <h3 class="font-cute text-xl text-amber-900 mb-4">📊 몽이 매력 지수</h3>
+        <div class="space-y-3.5 text-sm">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">사람 좋아함</span>
+              <span class="text-amber-600 font-bold">100%</span>
+            </div>
+            <div class="w-full bg-amber-100 rounded-full h-2.5">
+              <div class="bg-amber-400 h-2.5 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">산책 열정</span>
+              <span class="text-amber-600 font-bold">95%</span>
+            </div>
+            <div class="w-full bg-amber-100 rounded-full h-2.5">
+              <div class="bg-amber-400 h-2.5 rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">간식 참을성</span>
+              <span class="text-stone-400 font-bold">15%</span>
+            </div>
+            <div class="w-full bg-amber-100 rounded-full h-2.5">
+              <div class="bg-stone-300 h-2.5 rounded-full" style="width: 15%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 간식 주기 미니게임 -->
+    <section class="bg-amber-50/80 rounded-3xl p-6 sm:p-8 border border-amber-200/70 text-center">
+      <h3 class="font-cute text-2xl text-amber-900 mb-2">🦴 몽이에게 간식 주기</h3>
+      <p class="text-sm text-stone-600 mb-5">원하는 간식을 선택하면 몽이의 반응을 볼 수 있어요!</p>
+      
+      <div class="flex flex-wrap justify-center gap-3 mb-5">
+        <button onclick="giveTreat('🍠 군고구마', '꼬리가 프로펠러처럼 돌아가요! 멍멍!! (최고의 행복)')" class="bg-white hover:bg-amber-100 border border-amber-200 px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-xs transition cursor-pointer">
+          🍠 군고구마
+        </button>
+        <button onclick="giveTreat('🦴 개껌', '구석으로 물고 가서 소중하게 앙앙 씹어 먹어요!')" class="bg-white hover:bg-amber-100 border border-amber-200 px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-xs transition cursor-pointer">
+          🦴 튼튼 개껌
+        </button>
+        <button onclick="giveTreat('🥦 브로콜리', '킁킁 냄새만 맡더니 고개를 홱 돌려버렸어요... 삐짐!')" class="bg-white hover:bg-amber-100 border border-amber-200 px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-xs transition cursor-pointer">
+          🥦 생 브로콜리
+        </button>
+      </div>
+
+      <div id="treat-result" class="bg-white rounded-2xl p-4 text-sm text-stone-700 font-medium border border-amber-100">
+        아직 간식을 주지 않았어요. 위 버튼을 눌러보세요!
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full text-center py-6 text-xs text-stone-400">
+    Made with 💛 for Mong-e
+  </footer>
+
+  <script>
+    let count = 0;
+    const messages = [
+      "기분 좋아서 꼬리를 살랑살랑 흔들어요! 🐕",
+      "눈을 지그시 감고 골골송을 부르는 중... 💛",
+      "배를 보여주며 발라당 누웠어요! 더 만져주세요!",
+      "행복 지수 최고치 달성! 멍멍! 🐾"
+    ];
+
+    function petDog(e) {
+      count++;
+      document.getElementById('pet-count').innerText = count;
+      document.getElementById('pet-message').innerText = messages[count % messages.length];
+
+      const container = document.getElementById('heart-container');
+      const heart = document.createElement('span');
+      heart.innerText = ['💛', '🐾', '🧡', '✨'][Math.floor(Math.random() * 4)];
+      heart.className = 'heart-anim';
+      
+      const rect = e.currentTarget.getBoundingClientRect();
+      const parentRect = container.parentElement.getBoundingClientRect();
+      heart.style.left = (rect.left - parentRect.left + rect.width / 2 - 12 + (Math.random() * 40 - 20)) + 'px';
+      heart.style.top = (rect.top - parentRect.top) + 'px';
+
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    }
+
+    function giveTreat(treatName, reaction) {
+      const box = document.getElementById('treat-result');
+      box.innerHTML = `<span class="text-amber-600 font-bold">[${treatName}]</span> ${reaction}`;
+    }
+  </script>
+</body>
+</html>
